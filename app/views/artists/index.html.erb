@@ -1,0 +1,13 @@
+<h1>All Artists</h1>
+
+<% if @artists.size == 0 %>
+  <h2>No artists have been created</h2>
+<% else %>
+  <ul>
+    <% @artists.each do |artist| %>
+    <li><%= link_to artist.name, artist_path(artist.id) %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= link_to "New artist", new_artist_path %>
