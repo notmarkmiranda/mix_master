@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :artists do
-    resources :songs, only: [:new, :create]
+    resources :songs, only: [:new, :create, :index, :destroy], controller: "artist/songs"
   end
 
-  resources :songs, only: [:show]
+  resources :songs, only: [:show, :edit, :update, :index, :destroy]
 end
