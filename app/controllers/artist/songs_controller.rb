@@ -2,7 +2,7 @@ class Artist::SongsController < ApplicationController
   before_action :set_artist, only: [:index, :new, :create]
 
   def index
-    @songs = Song.all
+    @songs = @artist.songs.all
   end
 
   def new
@@ -24,6 +24,7 @@ class Artist::SongsController < ApplicationController
     redirect_to artist_songs_path(song.artist_id)
 
   end
+  
   private
     def set_artist
       @artist = Artist.find(params[:artist_id])
