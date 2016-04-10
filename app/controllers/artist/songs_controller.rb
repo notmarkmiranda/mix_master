@@ -2,7 +2,7 @@ class Artist::SongsController < ApplicationController
   before_action :set_artist, only: [:index, :new, :create]
 
   def index
-    @songs = Song.all
+    @songs = @artist.songs.all
   end
 
   def new
