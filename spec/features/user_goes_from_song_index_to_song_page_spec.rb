@@ -2,8 +2,7 @@ require 'rails_helper'
 
 RSpec.feature "User goes from song index to song page" do
   scenario "they see the individual song page" do
-  song_one = create(:song)
-  song_two = create(:song, title: "No Woman, No Cry")
+  song_one, song_two = create_list(:song, 2)
   visit songs_path
   expect(page).to have_selector("ul li:nth-child(1)", text: song_two.title)
   expect(page).to have_selector("ul li:nth-child(2)", text: song_one.title)
