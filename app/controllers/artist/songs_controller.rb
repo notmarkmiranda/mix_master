@@ -1,19 +1,15 @@
 class Artist::SongsController < ApplicationController
+  before_action :set_artist, only: [:index, :new, :create]
 
   def index
-    if params[:artist_id]
-      @artist = Artist.find(params[:artist_id])
-    end
     @songs = Song.all
   end
 
   def new
-    @artist = Artist.find(params[:artist_id])
     @song = @artist.songs.new
   end
 
   def create
-    @artist = Artist.find(params[:artist_id])
     @song = @artist.songs.new(song_params)
     if @song.save
       redirect_to song_path(@song)
@@ -29,6 +25,10 @@ class Artist::SongsController < ApplicationController
 
   end
   private
+    def set_artist
+      @artist = Artist.find(params[:artist_id])
+    end
+
     def song_params
       params.require(:song).permit(:title)
     end
