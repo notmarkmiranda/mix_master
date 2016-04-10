@@ -33,6 +33,8 @@ gem 'rails_12factor', group: :production
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'shoulda-matchers', github: 'thoughtbot/shoulda-matchers'
+  gem 'factory_girl_rails', "~>4.0"
+  gem 'database_cleaner'
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
