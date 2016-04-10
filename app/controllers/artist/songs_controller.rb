@@ -24,6 +24,7 @@ class Artist::SongsController < ApplicationController
     redirect_to artist_songs_path(song.artist_id)
 
   end
+  
   private
     def set_artist
       @artist = Artist.find(params[:artist_id])
