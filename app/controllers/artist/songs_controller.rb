@@ -7,6 +7,7 @@ class Artist::SongsController < ApplicationController
 
   def new
     @song = @artist.songs.new
+    byebug  
   end
 
   def create
@@ -24,7 +25,7 @@ class Artist::SongsController < ApplicationController
     redirect_to artist_songs_path(song.artist_id)
 
   end
-  
+
   private
     def set_artist
       @artist = Artist.find(params[:artist_id])
