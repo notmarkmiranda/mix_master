@@ -7,7 +7,7 @@ class Artist::SongsController < ApplicationController
 
   def new
     @song = @artist.songs.new
-    byebug  
+
   end
 
   def create
